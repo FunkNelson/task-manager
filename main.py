@@ -4,12 +4,12 @@ version_number = 1.0
 
 options = [(1, 'Enter a new task'),
            (2, 'Mark a task complete'),
-           (3, 'Display all tasks'),
-           (4, 'Display a random task')]
+           (3, 'Display pending tasks'),
+           (4, 'Display completed tasks')]
 
 
-task_file = "task_file.txt"  # file that is written and read from
-
+task_file = "task_file.txt"
+completed_task_file = "completed_tasks.txt"
 
 print(f"Welcome to Task Manager v{version_number}")
 
@@ -28,6 +28,7 @@ match option:
         print("Here are your current tasks:")
         tmf.display_all_tasks(task_file)
     case 4:
-        print("This isn't ready yet")
+        print("Here are your completed tasks:")
+        tmf.display_all_tasks(completed_task_file)
     case _:
         print("That's not a valid option")

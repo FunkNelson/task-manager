@@ -18,7 +18,8 @@ tmf.display_options(options)
 option = int(tmf.select_option())
 match option:
     case 1:
-        tmf.add_task(task_file)
+        new_task = input("Enter a new task: ")
+        tmf.add_task(task_file, new_task)
     case 2:
         tmf.display_all_tasks(task_file)
         completed_task = int(input("Which task have you completed: "))

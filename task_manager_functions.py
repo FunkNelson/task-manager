@@ -11,10 +11,10 @@ def select_option() -> int:
     return selection
 
 
-def add_task(file):
-    task = input("Enter a new task: ")
+def add_task(file, task):
+    # task = input("Enter a new task: ")
     with open(file, 'a') as f:
-        f.write(f"{task} | {date.today()}\n")
+        f.write(f"{task} | {date.today()}")
     f.close()
 
 
@@ -28,6 +28,7 @@ def remove_task(file, selection):
                 if lines.index(line) + 1 != selection:
                     f.write(line)
                 else:
+                    add_task('completed_tasks.txt', line)
                     print(f"You have completed the task: {line}")
         f.close()
     except FileNotFoundError:

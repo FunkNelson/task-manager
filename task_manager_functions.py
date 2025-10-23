@@ -18,7 +18,7 @@ def add_task(file, task):
     f.close()
 
 
-def remove_task(file, selection):
+def remove_task(file, selection, done_file):
     try:
         with open(file, 'r') as f:
             lines = f.readlines()
@@ -28,7 +28,7 @@ def remove_task(file, selection):
                 if lines.index(line) + 1 != selection:
                     f.write(line)
                 else:
-                    add_task('completed_tasks.txt', line)
+                    add_task(done_file, f"\n{line.strip()}")
                     print(f"You have completed the task: {line}")
         f.close()
     except FileNotFoundError:

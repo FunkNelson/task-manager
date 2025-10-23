@@ -18,11 +18,28 @@ def add_task(file):
     f.close()
 
 
+def remove_task(file, selection):
+    try:
+        with open(file, 'r') as f:
+            lines = f.readlines()
+
+        with open(file, 'w') as f:
+            for line in lines:
+                if lines.index(line) + 1 != selection:
+                    f.write(line)
+                else:
+                    print(f"You have completed the task: {line}")
+        f.close()
+    except FileNotFoundError:
+        print(f"Error: File '{file}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
 def display_all_tasks(file):
     try:
         with open(file, 'r') as f:
             i = 1
-            print("Here are your current tasks")
             for line in f:
                 print(f"{i}. {line.strip()}")
                 i += 1

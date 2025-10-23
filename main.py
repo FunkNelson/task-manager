@@ -19,9 +19,14 @@ option = int(tmf.select_option())
 match option:
     case 1:
         tmf.add_task(task_file)
-    case 2 | 4:
-        print("This isn't ready yet")
-    case 3:
+    case 2:
         tmf.display_all_tasks(task_file)
+        completed_task = int(input("Which task have you completed: "))
+        tmf.remove_task(task_file, completed_task)
+    case 3:
+        print("Here are your current tasks:")
+        tmf.display_all_tasks(task_file)
+    case 4:
+        print("This isn't ready yet")
     case _:
         print("That's not a valid option")

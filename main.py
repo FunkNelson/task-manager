@@ -17,12 +17,11 @@ tmf.display_options(options)
 
 option = int(tmf.select_option())
 match option:
-    case 1 | 2 | 4:
+    case 1:
+        tmf.add_task(task_file)
+    case 2 | 4:
         print("This isn't ready yet")
     case 3:
         tmf.display_all_tasks(task_file)
     case _:
         print("That's not a valid option")
-
-
-# add_task(task_file, "Drop off ballot")

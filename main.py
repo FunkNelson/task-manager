@@ -17,20 +17,20 @@ options = [(1, 'Enter a new task'),
 task_file = "task_file.txt"
 
 
-# Display options
 def display_options(options):
     for option in options:
         print(f"{option[0]}.  {option[1]}")
 
-# Add task
+
+def select_option() -> int:
+    selection = input("Enter a number: ")
+    return selection
 
 
 def add_task(file, task):
     with open(file, 'a') as f:
         f.write(f"{task}\n")
     f.close()
-
-# Display all tasks
 
 
 def display_all_tasks(file):
@@ -50,6 +50,14 @@ print(f"Welcome to Task Manager v{version_number}")
 
 display_options(options)
 
-# add_task(task_file, "Drop off ballot")
+option = int(select_option())
+match option:
+    case 1 | 2 | 4:
+        print("This isn't ready yet")
+    case 3:
+        display_all_tasks(task_file)
+    case _:
+        print("That's not a valid option")
 
-display_all_tasks(task_file)
+
+# add_task(task_file, "Drop off ballot")

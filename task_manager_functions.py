@@ -7,7 +7,7 @@ def display_options(options):
 
 
 def select_option() -> int:
-    selection = input("Enter a number: ")
+    selection = input("\nEnter a number: ")
     return selection
 
 
@@ -47,3 +47,13 @@ def display_all_tasks(file):
         f.close()
     except FileNotFoundError:
         print(f"The file {file} was not found")
+
+
+def display_title(version):
+    print('___________              __        _____                                             ')
+    print('\\__    ___/____    _____|  | __   /     \\ _____    ____ _____     ____   ___________ ')
+    print('  |    |  \\__  \\  /  ___/  |/ /  /  \\ /  \\\\__  \\  /    \\\\__  \\   / ___\\_/ __ \\_  __ \\')
+    print('  |    |   / __ \\_\\___ \\|    <  /    Y    \\/ __ \\|   |  \\/ __ \\_/ /_/  >  ___/|  | \\/')
+    print('  |____|  (____  /____  >__|_ \\ \\____|__  (____  /___|  (____  /\\___  / \\___  >__|   ')
+    print('               \\/     \\/     \\/         \\/     \\/     \\/     \\//_____/      \\/     ')
+    print(f'                                               version {version} ')

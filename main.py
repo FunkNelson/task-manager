@@ -11,8 +11,8 @@ options = [(1, 'Enter a new task'),
 task_file = "task_file.txt"
 completed_task_file = "completed_tasks.txt"
 
-print(f"Welcome to Task Manager v{version_number}")
-
+# print(f"Welcome to Task Manager v{version_number}")
+tmf.display_title(version_number)
 tmf.display_options(options)
 
 option = int(tmf.select_option())

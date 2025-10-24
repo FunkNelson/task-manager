@@ -2,8 +2,9 @@ from datetime import date
 
 
 def display_options(options):
+    print('\n')
     for option in options:
-        print(f"{option[0]}.  {option[1]}")
+        print(f"{option[0]}. {option[1]}")
 
 
 def select_option() -> int:
@@ -44,6 +45,7 @@ def display_all_tasks(file):
             for line in f:
                 print(f"{i}. {line.strip()}")
                 i += 1
+        print("\n")
         f.close()
     except FileNotFoundError:
         print(f"The file {file} was not found")

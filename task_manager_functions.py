@@ -15,7 +15,6 @@ def select_option() -> int:
 def add_task(file, task):
     with open(file, 'a') as f:
         f.write(f"{task} | {date.today()}")
-    f.close()
 
 
 def remove_task(file, selection, done_file):
@@ -30,7 +29,6 @@ def remove_task(file, selection, done_file):
                 else:
                     add_task(done_file, f"\n{line.strip()}")
                     print(f"You have completed the task: {line}")
-        f.close()
     except FileNotFoundError:
         print(f"Error: File '{file}' not found.")
     except Exception as e:
@@ -44,7 +42,6 @@ def display_all_tasks(file):
             for index, line in enumerate(lines):
                 print(f"{index + 1}. {line.strip()}")
         print("\n")
-        f.close()
     except FileNotFoundError:
         print(f"Error: File '{file}' not found.")
     except Exception as e:

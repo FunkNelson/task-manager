@@ -13,7 +13,6 @@ def select_option() -> int:
 
 
 def add_task(file, task):
-    # task = input("Enter a new task: ")
     with open(file, 'a') as f:
         f.write(f"{task} | {date.today()}")
     f.close()
@@ -25,8 +24,8 @@ def remove_task(file, selection, done_file):
             lines = f.readlines()
 
         with open(file, 'w') as f:
-            for line in lines:
-                if lines.index(line) + 1 != selection:
+            for index, line in enumerate(lines):
+                if index + 1 != selection:
                     f.write(line)
                 else:
                     add_task(done_file, f"\n{line.strip()}")
@@ -41,17 +40,19 @@ def remove_task(file, selection, done_file):
 def display_all_tasks(file):
     try:
         with open(file, 'r') as f:
-            i = 1
-            for line in f:
-                print(f"{i}. {line.strip()}")
-                i += 1
+            lines = f.readlines()
+            for index, line in enumerate(lines):
+                print(f"{index + 1}. {line.strip()}")
         print("\n")
         f.close()
     except FileNotFoundError:
-        print(f"The file {file} was not found")
+        print(f"Error: File '{file}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 def display_title(version):
+    print('\n')
     print('___________              __        _____                                             ')
     print('\\__    ___/____    _____|  | __   /     \\ _____    ____ _____     ____   ___________ ')
     print('  |    |  \\__  \\  /  ___/  |/ /  /  \\ /  \\\\__  \\  /    \\\\__  \\   / ___\\_/ __ \\_  __ \\')

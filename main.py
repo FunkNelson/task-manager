@@ -22,6 +22,7 @@ while session_active:
             tmf.add_task(task_file, f"\n{new_task}")
             input('Press Enter to continue...')
         case 2:
+            print("\nCURRENT TASK | DATE ENTERED")
             tmf.display_all_tasks(task_file)
             completed_task = int(input("Which task have you completed: "))
             tmf.remove_task(task_file, completed_task, completed_task_file)

@@ -1,7 +1,8 @@
 import task_manager_functions as tmf
 
-task_file = "task_file.txt"
-completed_task_file = "completed_tasks.txt"
+task_file_pending = "tasks_pending.txt"
+task_file_recurring = "tasks_recurring.txt"
+task_file_completed = "tasks_completed.txt"
 
 version_number = 1.10
 tmf.display_title(version_number)
@@ -22,29 +23,30 @@ while session_active:
     match option:
         case 1:
             new_task = input("Enter a new task: ")
-            tmf.add_task(task_file, f"\n{new_task}")
+            tmf.add_task(task_file_pending, f"\n{new_task}")
             input('Press Enter to continue...')
         case 2:
             print("Feature in development")
         case 3:
             print("\nCURRENT TASK | DATE ENTERED")
-            tmf.display_all_tasks(task_file)
+            tmf.display_all_tasks(task_file_pending)
             completed_task = int(input("Which task have you completed: "))
-            tmf.remove_task(task_file, completed_task, completed_task_file)
+            tmf.remove_task(task_file_pending, completed_task,
+                            task_file_completed)
             input('Press Enter to continue...')
         case 4:
             print("Feature in development")
         case 5:
             print("\nCURRENT TASK | DATE ENTERED")
-            tmf.display_all_tasks(task_file)
+            tmf.display_all_tasks(task_file_pending)
             input('Press Enter to continue...')
         case 6:
             print("Feature in development")
         case 7:
             print("\nCOMPLETED TASK | DATE ENTERED | DATE COMPLETED")
-            tmf.display_all_tasks(completed_task_file)
+            tmf.display_all_tasks(task_file_completed)
             input('Press Enter to continue...')
-        case 5:
+        case 8:
             print("Goodbye\n")
             session_active = False
         case _:
